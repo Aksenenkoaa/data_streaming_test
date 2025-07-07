@@ -29,7 +29,7 @@ POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
 POSTGRES_PWD = os.getenv("POSTGRES_PASSWORD", "postgres")
 POSTGRES_DB  = os.getenv("POSTGRES_DB", "streaming")
 
-def build_pipeline(t_env: StreamTableEnvironment):
+def build_pipeline(t_env: StreamTableEnvironment) -> None:
     """
     Define source, sink and transformation logic here.
     Replace all TODOs with working code.
@@ -117,7 +117,7 @@ def build_pipeline(t_env: StreamTableEnvironment):
     """)
 
 
-def main():
+def main() -> None:
     settings = EnvironmentSettings.in_streaming_mode()
     env = StreamExecutionEnvironment.get_execution_environment()
     env.set_parallelism(1)
