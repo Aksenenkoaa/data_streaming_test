@@ -5,7 +5,7 @@ POSTGRES_DSN = os.getenv(
     "dbname=streaming user=postgres password=postgres host=sp_postgres port=5432"
 )
 
-def wait_for_postgres():
+def wait_for_postgres() -> bool:
     """Wait for PostgreSQL to be ready"""
     max_retries = 30
     retry_delay = 2
@@ -25,7 +25,7 @@ def wait_for_postgres():
                 return False
     return False
 
-def main():
+def main() -> None:
     # Wait for PostgreSQL to be ready
     if not wait_for_postgres():
         return
